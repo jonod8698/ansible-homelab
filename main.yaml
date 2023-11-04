@@ -1,0 +1,4 @@
+- name: Initial Setup
+  hosts: proxmox_hosts
+  roles:
+    - init

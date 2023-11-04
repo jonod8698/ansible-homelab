@@ -1,0 +1,20 @@
+- name: Add SSH keys
+  ansible.posix.authorized_key:
+    user: root
+    state: present
+    key: https://github.com/jonod8698.keys
+
+- name: Change update sources to proxmox community agnoistic without changing the version
+  ansible.builtin.replace:
+    path: /etc/apt/sources.list.d/pve-enterprise.list
+    regexp: 'deb https://enterprise.proxmox.com/debian/pve bookworm pve-enterprise'
+    replace: 'deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription'
+
+- name: Change ceph update sources to proxmox community agnoistic without changing the version
+  ansible.builtin.replace:
+    path: /etc/apt/sources.list.d/ceph.list
+    regexp: 'deb https://enterprise.proxmox.com/debian/ceph-quincy bookworm enterprise'
+    replace: 'deb http://download.proxmox.com/debian/ceph-quincy bookworm no-subscription'
+
+- name: Set DNS servers
+  import_tasks: dns.yaml

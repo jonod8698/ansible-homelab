@@ -1,0 +1,4 @@
+- name: Conduct Routine maintenance
+  hosts: proxmox_hosts
+  roles:
+    - update

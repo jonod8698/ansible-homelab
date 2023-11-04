@@ -1,0 +1,6 @@
+
+- name: Set DNS servers. Incomplete
+  ansible.builtin.shell:
+    cmd: |
+      pvenode acme account register main admin@neptsec.com
+      pvenode acme plugin add dns cloudflare -api cf 
