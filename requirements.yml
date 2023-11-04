@@ -1,0 +1,4 @@
+roles:
+  - name:
+    src: https://github.com/PragmaticEngineering/ansibleRole-proxmox-templates.git
+    scm: git
